@@ -71,7 +71,9 @@ def ls_count(gp_file, saveQ = False):
     end = time.time()
     print(gp_file, ":", "time for processing", end-start)
     if saveQ:
-        with open('ls_'+gp_file, 'wb') as f:
+        ls_file = 'ls_'+gp_file
+        print('writing to {}'.format(ls_file))
+        with open(ls_file, 'wb') as f:
             pickle.dump(dict_res, f)    
     return dict_res
 
@@ -141,7 +143,7 @@ def ls_full_dict():
 def ls_check():
     tt = ls_full_dict()
     tt_nonprim = ls_load('ls_bolza_nonprim.txt')
-    lines = linestolist('AS_length_spectrum.txt')
+    lines = linestolist('ls_AS_data.txt')
     for line in lines:
         val = list(map(int, line.split(',')))
         if tt[tuple(val[1:3])]!=val[0]:
@@ -445,6 +447,7 @@ def non_prim_conj_classes2(length, write_file = False):
     if write_file:
         thefile = io.open('bolza_nonprim.txt', 'a', encoding='utf8')
     for k in [1,2,3,4,5,6]:
+        exe_enumgroup2(k)
         for itm in enumgroup2[k]:
             word = itm
             for n in [1,2,3,4,5,6,7,8,9,10,12]:
