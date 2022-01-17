@@ -3,6 +3,8 @@
 
 Compute the length spectrum of the Bolza surface!
 
+![](https://raw.githubusercontent.com/chlee-0/bolza/main/fund_domain.png)
+
 1. Enumerate representatives for hyperbolic conjugacy classes (see [conj_class_enumeration.ipynb](https://github.com/chlee-0/bolza/blob/main/conj_class_enumeration.ipynb))
 2. Compute the length spectrum from representatives (see [length_spectrum_compute.ipynb](https://github.com/chlee-0/bolza/blob/main/length_spectrum_compute.ipynb))
 
